@@ -24,10 +24,33 @@ export const Main = () => {
 	},[])
 	return (
 		<>
-			<div style={{ marginTop: "10px" }}>
-				{postList?.map((post) => (
-					<Post post={post} />
-				))}
+			<div className="home-container">
+				<h1 style={{ textAlign: "center" }}>POSTS</h1>
+				{postList ? (
+					<>
+						<div>
+							{postList?.map((post) => (
+								<Post  post={post} />
+							))}
+						</div>
+						<div>
+							<div>
+								<span>copyright: Ivan Walker</span>
+							</div>
+						</div>
+					</>
+				) : (
+						<>
+							<div>
+								<h2>Please login to create your post</h2>
+						</div>
+					<div>
+						<div>
+							<span>copy right: Ivan Walker</span>
+						</div>
+							</div>
+					</>
+				)}
 			</div>
 		</>
 	);

@@ -66,22 +66,32 @@ export const Post = (props: Props) => {
 		}
   };
   return (
-    <>
-      <div>
-        <div className="title">
-          <h1>{post.title}</h1>
-        </div>
-        <div className="body">
-          <p>{post.description}</p>
-        </div>
-        <div className="footer">
-          <p>@{post.username}</p>
-          <button onClick={hasUserLiked ? removeLike : addLike }>
-            {hasUserLiked ? <>&#128078;</> : <>&#128077;</>}
-          </button>
-          {likes && <p>:ikes: {likes?.length}</p>}
-        </div>
-      </div>
-    </>
-  )
+		<>
+			<div className="post">
+        <div>
+          
+					<div className="profile-cont">
+						<div className="profile">
+							<img src={user?.photoURL || ""} alt="" />
+						</div>
+						<span>@{post.username}</span>
+					</div>
+					<div className="title">
+						<h1>{post.title}</h1>
+					</div>
+					<div className="body">
+						<p>{post.description}</p>
+					</div>
+					<div className="footer">
+						<p></p>
+						{likes &&  <p>:ikes: <span style={{color: "tomato"}}>{likes?.length}</span></p>}
+						<hr />
+						<button onClick={hasUserLiked ? removeLike : addLike}>
+							{hasUserLiked ? <>&#128078;</> : <>&#128077;</>}
+						</button>
+					</div>
+				</div>
+			</div>
+		</>
+  );
 }
